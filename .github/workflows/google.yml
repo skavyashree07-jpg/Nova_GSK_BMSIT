@@ -114,3 +114,9 @@ jobs:
           ./kustomize build . | kubectl apply -f -
           kubectl rollout status deployment/$DEPLOYMENT_NAME
           kubectl get services -o wide
+
+
+      - name: 'notify vercel'
+  uses: 'vercel/repository-dispatch/actions/status@v1'
+  with:
+    name: Vercel - nova-gsk-bmsit: lint
